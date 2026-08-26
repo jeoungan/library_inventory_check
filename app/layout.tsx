@@ -3,13 +3,14 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jangseo-inventory-scan.hsmu-makers.chatgpt.site'),
-  title: '장서점검 · 바코드 스캐너',
-  description: '휴대폰 카메라로 도서 바코드를 읽고 TXT 파일로 저장하는 장서점검 도구',
-  applicationName: '장서점검',
+  title: '바코드 장서 점검',
+  description: '바코드를 카테고리별로 스캔하고 TXT로 저장하는 장서점검 도구',
+  applicationName: '바코드 장서 점검',
+  manifest: '/manifest.webmanifest',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: '장서점검',
+    title: '바코드 장서 점검',
   },
   formatDetection: {
     telephone: false,
@@ -17,17 +18,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
-    title: '장서점검',
-    description: '도서 바코드 스캔 · TXT 저장',
+    title: '바코드 장서 점검',
+    description: '스캔 · 목록 관리 · TXT 저장',
     images: [{
       url: 'https://jangseo-inventory-scan.hsmu-makers.chatgpt.site/og.png',
-      alt: '장서점검 · 도서 바코드 스캔 · TXT 저장',
+      alt: '바코드 장서 점검 · 스캔 · 목록 관리 · TXT 저장',
     }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '장서점검',
-    description: '도서 바코드 스캔 · TXT 저장',
+    title: '바코드 장서 점검',
+    description: '스캔 · 목록 관리 · TXT 저장',
     images: ['https://jangseo-inventory-scan.hsmu-makers.chatgpt.site/og.png'],
   },
 };
@@ -36,7 +37,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: '#102a29',
+  themeColor: '#f5f6f7',
 };
 
 export default function RootLayout({
