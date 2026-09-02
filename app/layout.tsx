@@ -1,12 +1,14 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://jangseo-inventory-scan.hsmu-makers.chatgpt.site'),
   title: '바코드 장서 점검',
   description: '바코드를 카테고리별로 스캔하고 TXT로 저장하는 장서점검 도구',
   applicationName: '바코드 장서 점검',
-  manifest: '/manifest.webmanifest',
+  manifest: `${basePath}/manifest.webmanifest`,
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',

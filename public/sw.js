@@ -1,4 +1,4 @@
-const CACHE_NAME = 'library-inventory-v1';
+const CACHE_NAME = 'library-inventory-v2';
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
@@ -26,7 +26,7 @@ self.addEventListener('fetch', (event) => {
         const cached = await caches.match(event.request);
         if (cached) return cached;
         if (event.request.mode === 'navigate') {
-          const home = await caches.match('/');
+          const home = await caches.match(self.registration.scope);
           if (home) return home;
         }
         return Response.error();

@@ -177,7 +177,13 @@ export default function Home() {
       setInstallPrompt(event as InstallPromptEvent);
     };
     window.addEventListener('beforeinstallprompt', handleInstallPrompt);
-    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => undefined);
+    if ('serviceWorker' in navigator) {
+      const manifestLink = document.querySelector<HTMLLinkElement>('link[rel="manifest"]');
+      const serviceWorkerUrl = manifestLink
+        ? new URL('sw.js', manifestLink.href).href
+        : new URL('sw.js', window.location.href).href;
+      navigator.serviceWorker.register(serviceWorkerUrl).catch(() => undefined);
+    }
     return () => {
       window.clearTimeout(restoreTimer);
       window.removeEventListener('beforeinstallprompt', handleInstallPrompt);
